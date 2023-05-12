@@ -15,16 +15,6 @@ cd api
 cd UsuarioUnico
 pwd
 mdelete $archivo
-bye
-EOF
-done
-for archivo in $archivos
-do
-echo $archivo
-ftp ftp://siit:Rojo1212@172.16.0.74 <<EOF
-prompt
-cd api
-cd UsuarioUnico
 rm $archivo
 bye
 EOF
