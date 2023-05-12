@@ -6,7 +6,6 @@ dotenv.config({ path: './.env' })
 
 async function main() {
   try {
-    console.log(process.env)
     // Replace "/out" with your build directory which contains all generated static files
     const outDir = path.join(process.cwd(), process.env.BUILD_DIRECTORY || '/out')
     await new FtpDeploy().deploy({
@@ -21,8 +20,8 @@ async function main() {
       include: ['*', '**/*'], // Upload all files from build folder
       exclude: [], // Exclude no files
 
-      deleteRemote: true, // Set to true if you want to delete ALL FILES in the remote root before uploading
-      forcePasv: true // Use passive mode
+      deleteRemote: process.env.DELETE_REMOTE || false, // Set to true if you want to delete ALL FILES in the remote root before uploading
+      forcePasv: true, // Use passive mode,
     })
 
     console.log('Succesfully deployed site')
