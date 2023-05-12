@@ -1,7 +1,6 @@
-ftp ftp://siit:Rojo1212@172.16.0.74 <<EOF
+ftp ftp://$FTP_USER:$FTP_PASS@$FTP_HOST <<EOF
 prompt
-cd api
-cd UsuarioUnico
+cd $REMOTE_DIRECTORY
 nlist . lista_archivos.txt
 bye
 EOF
@@ -9,7 +8,7 @@ archivos=$(cat lista_archivos.txt | grep -v 'appsettings\|wwwroot\|Mail_template
 for archivo in $archivos
 do
 echo $archivo
-ftp ftp://siit:Rojo1212@172.16.0.74 <<EOF
+ftp ftp://$FTP_USER:$FTP_PASS@$FTP_HOST <<EOF
 prompt
 cd api
 cd UsuarioUnico
