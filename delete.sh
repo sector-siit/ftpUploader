@@ -10,8 +10,7 @@ do
 echo $archivo
 ftp ftp://$FTP_USER:$FTP_PASS@$FTP_HOST <<EOF
 prompt
-cd api
-cd UsuarioUnico
+cd $REMOTE_DIRECTORY
 pwd
 mdelete $archivo
 rm $archivo
