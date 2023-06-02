@@ -20,7 +20,7 @@ async function main() {
       include: ['*', '**/*'], // Upload all files from build folder
       exclude: [], // Exclude no files
 
-      deleteRemote: process.env.DELETE_REMOTE, // Set to true if you want to delete ALL FILES in the remote root before uploading
+      deleteRemote: process.env.DELETE_REMOTE.toLowerCase() === "true", // Set to true if you want to delete ALL FILES in the remote root before uploading
       forcePasv: true, // Use passive mode,
     })
 
